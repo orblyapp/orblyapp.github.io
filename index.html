@@ -192,6 +192,9 @@
   footer .wrap { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
   footer .brand { font-size: 20px; color: var(--text); }
   footer .brand svg { width: 28px; height: 28px; }
+  footer .legal-links { display: flex; gap: 18px; }
+  footer .legal-links a { color: var(--muted); }
+  footer .legal-links a:hover { color: var(--text); }
 
   .toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px);
     background: var(--panel-2); border: 1px solid var(--line); color: var(--text); padding: 14px 20px; border-radius: 14px;
@@ -439,6 +442,7 @@
   <div class="wrap">
     <a class="brand" href="#top"><svg><use href="#logo"/></svg>Orbly</a>
     <span>© 2026 Orbly · <span lang="pt">Feito para conversar com quem importa.</span><span lang="en">Made for talking with the people who matter.</span></span>
+    <nav class="legal-links"><a href="/termos"><span lang="pt">Termos de uso</span><span lang="en">Terms of use</span></a><a href="/privacidade"><span lang="pt">Privacidade</span><span lang="en">Privacy</span></a></nav>
   </div>
 </footer>
 
