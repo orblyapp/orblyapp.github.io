@@ -1,15 +1,15 @@
-/* Paginas de Termos de uso e Privacidade: mesmas cores e fontes do site */
+/* Paginas de Termos de uso e Privacidade: mesmas cores ("Planeta") e fontes do site e do app */
 :root {
   color-scheme: dark;
-  --space: #100E2A;
-  --panel: #1B1846;
-  --line: rgba(190, 182, 255, 0.14);
-  --text: #F1F0FF;
-  --soft: #DCD9F7;
-  --muted: #ABA6DA;
-  --planet: #2EC4A6;
-  --ring: #9B8CFF;
-  --display: "Fredoka", "Nunito", "Trebuchet MS", system-ui, sans-serif;
+  --space: #0b1413;
+  --panel: #111f1d;
+  --line: #24403c;
+  --text: #f4fffc;
+  --soft: #dffaf3;
+  --muted: #8fb5ad;
+  --planet: #2ec4a6;
+  --ring: #2ec4a6;
+  --display: "Fredoka", "Segoe UI", system-ui, sans-serif;
   --body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 * { box-sizing: border-box; }
@@ -19,12 +19,13 @@ body { margin: 0; background: var(--space); color: var(--text); font: 400 17px/1
 a { color: var(--planet); }
 .wrap { width: 100%; max-width: 820px; margin: 0 auto; padding-inline: 20px; }
 
-.top { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(16, 14, 42, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 5; }
+.top { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(11, 20, 19, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 5; }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; padding-block: 14px; }
 .brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 22px; color: var(--text); text-decoration: none; }
 .langs { display: flex; gap: 4px; background: var(--panel); border: 1px solid var(--line); border-radius: 99px; padding: 3px; }
 .langs button { border: 0; background: none; color: var(--muted); font: 600 13px var(--body); padding: 6px 12px; border-radius: 99px; cursor: pointer; }
-.langs button[aria-pressed="true"] { background: var(--planet); color: #04342C; }
+.langs button[aria-pressed="true"] { background: var(--planet); color: #04342c; }
+.brand { text-transform: lowercase; }
 
 main { padding-block: 40px 72px; }
 h1, h2, h3 { font-family: var(--display); line-height: 1.15; letter-spacing: -0.01em; }

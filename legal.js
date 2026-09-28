@@ -9,10 +9,11 @@
     });
     try { localStorage.setItem('orbly-lang', l); } catch (e) {}
   }
+  var asked = (new URLSearchParams(location.search).get('lang') || '').toLowerCase();
   var saved = null;
   try { saved = localStorage.getItem('orbly-lang'); } catch (e) {}
   var nav = (navigator.language || 'pt').toLowerCase();
-  setLang(saved || (nav.indexOf('pt') === 0 ? 'pt' : 'en'));
+  setLang(asked === 'pt' || asked === 'en' ? asked : saved || (nav.indexOf('pt') === 0 ? 'pt' : 'en'));
   document.querySelectorAll('[data-set-lang]').forEach(function (b) {
     b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
   });
