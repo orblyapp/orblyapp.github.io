@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Orbly: chat, voz, câmera e transmissão de tela com seus amigos. Baixe grátis.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Orbly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --space: #100E2A;
+    --space-2: #16133A;
+    --ink: #1E1B4B;
+    --panel: #25215A;
+    --panel-2: #2E2968;
+    --line: rgba(190, 182, 255, 0.14);
+    --text: #F1F0FF;
+    --muted: #ABA6DA;
+    --planet: #2EC4A6;
+    --planet-deep: #1E9C84;
+    --ring: #9B8CFF;
+    --live: #FF5C7A;
+    --brand: #7C6CF0;
+    --brand-hover: #6A5AD8;
+    --radius: 18px;
+    --display: "Fredoka", "Nunito", "Trebuchet MS", system-ui, sans-serif;
+    --body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--space);
+    color: var(--text);
+    font: 400 17px/1.6 var(--body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+  p { margin: 0; }
+  :focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; border-radius: 8px; }
+
+  /* language switch: text for the other language is hidden */
+  [data-lang="pt"] [lang="en"], [data-lang="en"] [lang="pt"] { display: none !important; }
+
+  .wrap { width: 100%; max-width: 1160px; margin: 0 auto; padding-inline: 20px; }
+
+  /* starfield */
+  .sky { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(900px 500px at 85% -10%, rgba(155, 140, 255, 0.22), transparent 60%),
+      radial-gradient(700px 500px at -10% 30%, rgba(46, 196, 166, 0.12), transparent 60%),
+      var(--space); }
+  .sky canvas { width: 100%; height: 100%; display: block; }
+
+  /* nav */
+  .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    background: rgba(16, 14, 42, 0.72); border-bottom: 1px solid var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 700 26px/1 var(--display); }
+  .brand svg { width: 38px; height: 38px; }
+  .nav-links { display: flex; align-items: center; gap: 26px; font-weight: 600; font-size: 15px; }
+  .nav-links a { text-decoration: none; color: var(--muted); }
+  .nav-links a:hover { color: var(--text); }
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+  .lang { display: flex; background: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .lang button { all: unset; cursor: pointer; font: 700 12px/1 var(--body); letter-spacing: 0.06em;
+    padding: 7px 10px; border-radius: 999px; color: var(--muted); }
+  .lang button[aria-pressed="true"] { background: var(--ring); color: var(--ink); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer;
+    border: 0; border-radius: 999px; font: 700 17px/1 var(--body); text-decoration: none; white-space: nowrap;
+    padding: 17px 28px; transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+  .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 10px 30px -10px rgba(124, 108, 240, 0.8); }
+  .btn-primary:hover { background: var(--brand-hover); transform: translateY(-2px); box-shadow: 0 16px 40px -12px rgba(124, 108, 240, 0.9); }
+  .btn-ghost { background: var(--panel); color: var(--text); border: 1px solid var(--line); }
+  .btn-ghost:hover { background: var(--panel-2); }
+  .btn-sm { padding: 11px 18px; font-size: 14px; }
+
+  /* hero */
+  .hero { padding-block: 64px 40px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 40px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font: 700 13px/1 var(--body);
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--planet); margin-bottom: 20px; }
+  .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--planet);
+    box-shadow: 0 0 0 4px rgba(46, 196, 166, 0.2); }
+  .hero h1 { font-size: clamp(44px, 6.4vw, 80px); font-weight: 700; }
+  .hero h1 em { font-style: normal; color: var(--ring); }
+  .hero .lede { margin-top: 22px; font-size: 20px; color: var(--muted); max-width: 32ch; }
+  .hero-cta { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .hero-note { margin-top: 16px; font-size: 14px; color: var(--muted); }
+
+  .planet-stage { position: relative; aspect-ratio: 1; width: 100%; max-width: 520px; justify-self: center; }
+  .planet-stage svg { width: 100%; height: 100%; overflow: visible; }
+
+  /* app mockup */
+  .showcase { padding-block: 24px 40px; }
+  .window { border-radius: 16px; overflow: hidden; border: 1px solid var(--line);
+    background: #1A1742; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(0,0,0,.3);
+    max-width: 100%; }
+  .titlebar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #141236; font-size: 13px; color: var(--muted); }
+  .titlebar i { width: 11px; height: 11px; border-radius: 50%; background: #3A3573; display: block; }
+  .titlebar span { margin-left: 8px; font-weight: 600; }
+  .app { display: grid; grid-template-columns: 68px 230px 1fr; min-height: 440px; }
+  .rail { background: #131132; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 12px 0; }
+  .rail .srv { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+    font: 700 15px/1 var(--display); background: var(--panel); color: var(--text); }
+  .rail .srv.home { background: var(--ink); border-radius: 14px; }
+  .rail .srv.home svg { width: 34px; }
+  .rail .srv.on { border-radius: 14px; background: var(--ring); color: var(--ink); }
+  .rail hr { width: 30px; border: 0; border-top: 2px solid var(--panel); margin: 2px 0; }
+  .side { background: #1C1946; padding: 14px 10px; font-size: 14px; display: flex; flex-direction: column; gap: 4px; }
+  .side h4 { margin: 0 0 8px; padding: 0 8px; font: 700 15px/1.2 var(--display); }
+  .side .cat { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 10px 8px 4px; }
+  .side .ch { padding: 6px 8px; border-radius: 8px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+  .side .ch.sel { background: var(--panel); color: var(--text); }
+  .side .who { padding: 3px 8px 3px 30px; display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+  .side .who b { width: 20px; height: 20px; border-radius: 50%; display: inline-block; flex: none; }
+  .tag-live { background: var(--live); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 0.04em; padding: 2px 6px; border-radius: 4px; margin-left: auto; }
+  .stage { background: #0F0D28; padding: 16px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr auto auto; gap: 12px; }
+  .tile { position: relative; border-radius: 12px; overflow: hidden; min-height: 120px; display: grid; place-items: center; }
+  .tile .name { position: absolute; left: 10px; bottom: 10px; font-size: 12px; font-weight: 600;
+    background: rgba(10, 8, 30, 0.7); padding: 4px 8px; border-radius: 6px; display: flex; gap: 6px; align-items: center; }
+  .tile.screen { grid-column: 1 / -1; min-height: 210px; background: linear-gradient(160deg, #2A2566, #1A1745); }
+  .tile.screen .fake { width: 82%; height: 76%; border-radius: 8px; background: #121031; border: 1px solid var(--line);
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; padding: 14px; }
+  .tile.screen .fake div { border-radius: 6px; background: linear-gradient(180deg, rgba(155,140,255,.35), rgba(155,140,255,.08)); }
+  .tile.screen .fake div:nth-child(2) { background: linear-gradient(180deg, rgba(46,196,166,.45), rgba(46,196,166,.08)); }
+  .tile.cam-a { background: radial-gradient(circle at 50% 40%, #3F7F9A, #1C3950); }
+  .tile.cam-b { background: radial-gradient(circle at 50% 40%, #6B4F9E, #2A1F4F); }
+  .face { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font: 700 22px/1 var(--display); color: #fff; }
+  .speaking { box-shadow: 0 0 0 3px var(--planet) inset; }
+  .controls { grid-column: 1 / -1; display: flex; justify-content: center; gap: 10px; }
+  .controls span { width: 42px; height: 42px; border-radius: 50%; background: var(--panel); display: grid; place-items: center; }
+  .controls span svg { width: 18px; height: 18px; }
+  .controls .on { background: var(--ring); color: var(--ink); }
+  .controls .end { background: var(--live); }
+
+  /* features */
+  section { scroll-margin-top: 80px; }
+  .section { padding-block: 80px; }
+  .section-head { max-width: 640px; margin-bottom: 44px; }
+  .section-head h2 { font-size: clamp(34px, 4.4vw, 52px); font-weight: 700; }
+  .section-head p { margin-top: 14px; color: var(--muted); font-size: 18px; }
+  .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .feature { background: linear-gradient(180deg, var(--ink), #19163F); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; gap: 12px; }
+  .feature .ico { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; }
+  .feature .ico svg { width: 26px; height: 26px; }
+  .feature h3 { font-size: 26px; font-weight: 600; margin-top: 6px; }
+  .feature p { color: var(--muted); }
+  .ico.t { background: rgba(46,196,166,.16); color: var(--planet); }
+  .ico.v { background: rgba(155,140,255,.18); color: var(--ring); }
+  .ico.c { background: rgba(255,92,122,.16); color: var(--live); }
+  .ico.s { background: rgba(255,196,92,.16); color: #FFC45C; }
+
+  /* how it works */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; counter-reset: step; }
+  .step { padding: 26px 4px 0; border-top: 2px solid var(--line); }
+  .step::before { counter-increment: step; content: counter(step); font: 700 44px/1 var(--display); color: var(--ring); display: block; margin-bottom: 12px; }
+  .step h3 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+  .step p { color: var(--muted); }
+
+  /* download */
+  .download { text-align: left; }
+  .dl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .dl { background: var(--ink); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+    display: flex; flex-direction: column; gap: 14px; }
+  .dl.main { background: linear-gradient(165deg, #1F5E57 0%, var(--ink) 65%); border-color: rgba(46,196,166,.45); }
+  .dl .os { display: flex; align-items: center; gap: 12px; }
+  .dl .os svg { width: 34px; height: 34px; }
+  .dl h3 { font-size: 26px; font-weight: 600; }
+  .dl .meta { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+  .dl .btn { margin-top: auto; }
+  .soon { display: inline-flex; align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--ring); background: rgba(155,140,255,.14); padding: 5px 10px; border-radius: 999px; }
+  .btn[aria-disabled="true"] { background: var(--panel); color: var(--muted); cursor: not-allowed; box-shadow: none; transform: none; }
+
+  .cta-band { margin-top: 70px; border-radius: 28px; padding: 54px 40px; text-align: center; position: relative; overflow: hidden;
+    background: radial-gradient(600px 260px at 50% 120%, rgba(46,196,166,.35), transparent 70%), linear-gradient(180deg, #2A2470, var(--ink)); border: 1px solid var(--line); }
+  .cta-band h2 { font-size: clamp(32px, 4.4vw, 50px); }
+  .cta-band p { color: var(--muted); margin: 14px auto 28px; max-width: 46ch; }
+
+  footer { border-top: 1px solid var(--line); padding-block: 34px 48px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+  footer .brand { font-size: 20px; color: var(--text); }
+  footer .brand svg { width: 28px; height: 28px; }
+
+  .toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px);
+    background: var(--panel-2); border: 1px solid var(--line); color: var(--text); padding: 14px 20px; border-radius: 14px;
+    font-size: 15px; opacity: 0; pointer-events: none; transition: .25s ease; max-width: calc(100% - 32px); box-shadow: 0 20px 40px -10px rgba(0,0,0,.6); }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (max-width: 900px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .planet-stage { max-width: 360px; order: -1; }
+    .app { grid-template-columns: 58px 1fr; }
+    .side { display: none; }
+    .dl-grid, .steps { grid-template-columns: 1fr; }
+    .nav-links a:not(.btn) { display: none; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .hero { padding-block: 28px 20px; }
+    .hero .lede { font-size: 18px; }
+    .features { grid-template-columns: 1fr; }
+    .section { padding-block: 56px; }
+    .stage { grid-template-columns: 1fr 1fr; padding: 10px; }
+    .tile.screen { min-height: 150px; }
+    .cta-band { padding: 40px 20px; }
+    .nav-links .btn { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sky" aria-hidden="true"><canvas id="stars"></canvas></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 100 100">
+      <clipPath id="lg-front"><rect x="0" y="49" width="100" height="61"/></clipPath>
+      <mask id="lg-shade"><rect width="100" height="100" fill="#fff"/><circle cx="44" cy="43" r="26" fill="#000"/></mask>
+      <g transform="rotate(-18 50 50)"><ellipse cx="50" cy="50" rx="43" ry="12.5" fill="none" stroke="#9B8CFF" stroke-width="5.5"/></g>
+      <circle cx="50" cy="50" r="26" fill="#2EC4A6"/>
+      <circle cx="50" cy="50" r="26" fill="#1E9C84" mask="url(#lg-shade)"/>
+      <g transform="rotate(-18 50 50)"><ellipse cx="50" cy="50" rx="43" ry="12.5" fill="none" stroke="#9B8CFF" stroke-width="5.5" clip-path="url(#lg-front)"/></g>
+    </symbol>
+    <symbol id="i-win" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5.1 10.4 4v7.2H3V5.1Zm0 13.8V12.8h7.4V20L3 18.9ZM11.3 3.9 21 2.5v8.7h-9.7V3.9Zm0 16.2v-7.3H21v8.7l-9.7-1.4Z"/></symbol>
+    <symbol id="i-mac" viewBox="0 0 24 24"><path fill="currentColor" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.6 1.3-.1 1.7-.8 3.3-.8 1.5 0 1.9.8 3.3.8 1.4 0 2.2-1.3 3-2.5 1-1.4 1.4-2.8 1.4-2.8s-2.6-1-2.6-4.3ZM14 5.4c.7-.8 1.1-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4Z"/></symbol>
+    <symbol id="i-linux" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c-2.3 0-3.6 1.9-3.6 4.4 0 1.4.2 2.4-.6 3.8-.9 1.6-2.9 3.9-2.9 6.6 0 .9.3 1.6.7 2.1-.5.4-1.2.7-1.2 1.4 0 1 1.4 1.3 3 1.6 1.1.2 1.9.1 2.5-.4.7.3 1.3.4 2.1.4s1.4-.1 2.1-.4c.6.5 1.4.6 2.5.4 1.6-.3 3-.6 3-1.6 0-.7-.7-1-1.2-1.4.4-.5.7-1.2.7-2.1 0-2.7-2-5-2.9-6.6-.8-1.4-.6-2.4-.6-3.8C15.6 3.9 14.3 2 12 2Zm-1.4 4.3c.4 0 .7.5.7 1.1 0 .6-.3 1.1-.7 1.1s-.7-.5-.7-1.1c0-.6.3-1.1.7-1.1Zm2.8 0c.4 0 .7.5.7 1.1 0 .6-.3 1.1-.7 1.1s-.7-.5-.7-1.1c0-.6.3-1.1.7-1.1ZM12 9.6c.9 0 2 .6 2 1 0 .5-1.1 1.1-2 1.1s-2-.6-2-1.1c0-.4 1.1-1 2-1Z"/></symbol>
+    <symbol id="i-dl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 5h16v11H9l-5 4V5Z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8 9.5h8M8 12.5h5"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+    <symbol id="i-cam" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="m16 10.5 5-3v9l-5-3"/></symbol>
+    <symbol id="i-screen" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 21h8M12 14V8m0 0-3 3m3-3 3 3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M3.5 13.5c4.8-4.6 12.2-4.6 17 0l-2.3 2.3-3.4-1.6v-2.4a11 11 0 0 0-5.6 0v2.4l-3.4 1.6-2.3-2.3Z"/></symbol>
+  </defs>
+</svg>
+
+<div id="root" data-lang="pt">
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Orbly"><svg><use href="#logo"/></svg>Orbly</a>
+    <nav class="nav-links">
+      <a href="#recursos"><span lang="pt">Recursos</span><span lang="en">Features</span></a>
+      <a href="#como"><span lang="pt">Como funciona</span><span lang="en">How it works</span></a>
+      <a href="#baixar"><span lang="pt">Baixar</span><span lang="en">Download</span></a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" id="lang-pt" data-set-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" id="lang-en" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow"><span lang="pt">Grátis · Windows disponível</span><span lang="en">Free · Available on Windows</span></div>
+        <h1>
+          <span lang="pt">Sua galera, <em>no mesmo planeta.</em></span>
+          <span lang="en">Your people, <em>on the same planet.</em></span>
+        </h1>
+        <p class="lede">
+          <span lang="pt">Crie um servidor, chame os amigos e converse por texto, voz e vídeo. Mostre sua tela em um clique.</span>
+          <span lang="en">Make a server, bring your friends and talk by text, voice and video. Share your screen in one click.</span>
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary js-download" href="#baixar" id="hero-download">
+            <svg><use href="#i-win"/></svg>
+            <span lang="pt">Baixar para Windows</span><span lang="en">Download for Windows</span>
+          </a>
+          <a class="btn btn-ghost" href="#recursos"><span lang="pt">Ver o que dá pra fazer</span><span lang="en">See what it does</span></a>
+        </div>
+        <p class="hero-note"><span lang="pt">Mac e Linux em breve.</span><span lang="en">Mac and Linux coming soon.</span></p>
+      </div>
+
+      <div class="planet-stage" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <defs><radialGradient id="h-halo"><stop offset="0" stop-color="#2EC4A6" stop-opacity=".4"/><stop offset="1" stop-color="#2EC4A6" stop-opacity="0"/></radialGradient></defs>
+          <circle cx="50" cy="50" r="42" fill="url(#h-halo)"/>
+          <use href="#logo" x="0" y="0" width="100" height="100"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase" aria-label="Orbly">
+    <div class="wrap">
+      <div class="window" role="img" aria-label="Orbly: chamada com câmera e tela compartilhada / call with camera and screen share">
+        <div class="titlebar"><i></i><i></i><i></i><span>Orbly</span></div>
+        <div class="app">
+          <div class="rail">
+            <div class="srv home"><svg viewBox="0 0 100 100"><use href="#logo"/></svg></div>
+            <hr>
+            <div class="srv on">AG</div>
+            <div class="srv">ES</div>
+            <div class="srv" style="color:var(--planet)">+</div>
+          </div>
+          <div class="side">
+            <h4>Amigos do Game</h4>
+            <div class="cat"><span lang="pt">Canais de texto</span><span lang="en">Text channels</span></div>
+            <div class="ch"># geral</div>
+            <div class="ch"># memes</div>
+            <div class="cat"><span lang="pt">Canais de voz</span><span lang="en">Voice channels</span></div>
+            <div class="ch sel"><svg width="16" height="16"><use href="#i-mic"/></svg> <span lang="pt">Sala do Game</span><span lang="en">Game Room</span></div>
+            <div class="who"><b style="background:#3FA7D6"></b>Ana Souza</div>
+            <div class="who"><b style="background:#F4A62A"></b>Bia Lima <span class="tag-live"><span lang="pt">AO VIVO</span><span lang="en">LIVE</span></span></div>
+            <div class="who"><b style="background:#8E6BD8"></b>Caio Reis</div>
+          </div>
+          <div class="stage">
+            <div class="tile screen">
+              <div class="fake"><div></div><div></div><div></div></div>
+              <div class="name"><span class="tag-live" style="margin:0"><span lang="pt">AO VIVO</span><span lang="en">LIVE</span></span> <span lang="pt">Tela de Bia Lima</span><span lang="en">Bia Lima's screen</span></div>
+            </div>
+            <div class="tile cam-a speaking"><div class="face" style="background:#3FA7D6">AS</div><div class="name">Ana Souza</div></div>
+            <div class="tile cam-b"><div class="face" style="background:#8E6BD8">CR</div><div class="name">Caio Reis</div></div>
+            <div class="controls" aria-hidden="true">
+              <span><svg><use href="#i-mic"/></svg></span>
+              <span class="on"><svg><use href="#i-cam"/></svg></span>
+              <span><svg><use href="#i-screen"/></svg></span>
+              <span class="end"><svg><use href="#i-phone"/></svg></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="recursos">
+    <div class="wrap">
+      <div class="section-head">
+        <h2><span lang="pt">Tudo que a sua turma usa, num app só</span><span lang="en">Everything your crew uses, in one app</span></h2>
+        <p><span lang="pt">Servidores com canais de texto e de voz, igual você já conhece. Sem complicação.</span><span lang="en">Servers with text and voice channels, just like you're used to. No hassle.</span></p>
+      </div>
+      <div class="features">
+        <article class="feature">
+          <div class="ico t"><svg><use href="#i-chat"/></svg></div>
+          <h3><span lang="pt">Chat em tempo real</span><span lang="en">Real-time chat</span></h3>
+          <p><span lang="pt">Canais de texto por assunto, mensagens na hora e aquele "digitando..." pra saber quem vem aí.</span><span lang="en">Text channels by topic, instant messages and a "typing..." indicator so you know who's coming.</span></p>
+        </article>
+        <article class="feature">
+          <div class="ico v"><svg><use href="#i-mic"/></svg></div>
+          <h3><span lang="pt">Salas de voz</span><span lang="en">Voice rooms</span></h3>
+          <p><span lang="pt">Entre numa sala e fale na hora. Dá pra ver quem está falando e mutar o microfone quando quiser.</span><span lang="en">Hop into a room and start talking. See who's speaking and mute your mic whenever you want.</span></p>
+        </article>
+        <article class="feature">
+          <div class="ico c"><svg><use href="#i-cam"/></svg></div>
+          <h3><span lang="pt">Câmera ligada</span><span lang="en">Webcam video</span></h3>
+          <p><span lang="pt">Ligue a webcam dentro da sala de voz e veja todo mundo junto, lado a lado.</span><span lang="en">Turn on your webcam inside a voice room and see everyone side by side.</span></p>
+        </article>
+        <article class="feature">
+          <div class="ico s"><svg><use href="#i-screen"/></svg></div>
+          <h3><span lang="pt">Transmitir tela</span><span lang="en">Screen sharing</span></h3>
+          <p><span lang="pt">Mostre seu jogo, um vídeo ou um trabalho. Escolha a tela inteira ou só uma janela.</span><span lang="en">Show your game, a video or your work. Pick the whole screen or just one window.</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="como" style="padding-top:20px">
+    <div class="wrap">
+      <div class="section-head">
+        <h2><span lang="pt">Pronto em três passos</span><span lang="en">Ready in three steps</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3><span lang="pt">Baixe e instale</span><span lang="en">Download and install</span></h3>
+          <p><span lang="pt">Baixe o Orbly pro seu computador e abra o app.</span><span lang="en">Download Orbly to your computer and open the app.</span></p>
+        </div>
+        <div class="step">
+          <h3><span lang="pt">Crie sua conta</span><span lang="en">Create your account</span></h3>
+          <p><span lang="pt">Só e-mail, nome de usuário e senha. Leva menos de um minuto.</span><span lang="en">Just an email, username and password. Takes under a minute.</span></p>
+        </div>
+        <div class="step">
+          <h3><span lang="pt">Chame a galera</span><span lang="en">Invite your friends</span></h3>
+          <p><span lang="pt">Crie um servidor e mande o código de convite pros seus amigos.</span><span lang="en">Create a server and send the invite code to your friends.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section download" id="baixar">
+    <div class="wrap">
+      <div class="section-head">
+        <h2><span lang="pt">Baixe o Orbly</span><span lang="en">Download Orbly</span></h2>
+        <p><span lang="pt">Grátis. Comece pelo Windows; Mac e Linux estão chegando.</span><span lang="en">Free. Start on Windows; Mac and Linux are on the way.</span></p>
+      </div>
+      <div class="dl-grid">
+        <div class="dl main">
+          <div class="os"><svg><use href="#i-win"/></svg><h3>Windows</h3></div>
+          <p class="meta"><span lang="pt">Windows 10 e 11 · 64 bits · versão 0.1.0</span><span lang="en">Windows 10 and 11 · 64-bit · version 0.1.0</span></p>
+          <a class="btn btn-primary js-download" href="#baixar" id="dl-windows">
+            <svg><use href="#i-dl"/></svg>
+            <span lang="pt">Baixar para Windows</span><span lang="en">Download for Windows</span>
+          </a>
+        </div>
+        <div class="dl">
+          <div class="os"><svg><use href="#i-mac"/></svg><h3>macOS</h3></div>
+          <span class="soon"><span lang="pt">Em breve</span><span lang="en">Coming soon</span></span>
+          <a class="btn btn-sm" aria-disabled="true" role="link" tabindex="-1"><span lang="pt">Em breve</span><span lang="en">Coming soon</span></a>
+        </div>
+        <div class="dl">
+          <div class="os"><svg><use href="#i-linux"/></svg><h3>Linux</h3></div>
+          <span class="soon"><span lang="pt">Em breve</span><span lang="en">Coming soon</span></span>
+          <a class="btn btn-sm" aria-disabled="true" role="link" tabindex="-1"><span lang="pt">Em breve</span><span lang="en">Coming soon</span></a>
+        </div>
+      </div>
+
+      <div class="cta-band">
+        <h2><span lang="pt">Sua galera está esperando</span><span lang="en">Your crew is waiting</span></h2>
+        <p><span lang="pt">Baixe agora, crie um servidor e mande o convite. Em poucos minutos todo mundo está na call.</span><span lang="en">Download now, make a server and send the invite. Everyone's in the call within minutes.</span></p>
+        <a class="btn btn-primary js-download" href="#baixar" id="band-download">
+          <svg><use href="#i-win"/></svg>
+          <span lang="pt">Baixar para Windows</span><span lang="en">Download for Windows</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><svg><use href="#logo"/></svg>Orbly</a>
+    <span>© 2026 Orbly · <span lang="pt">Feito para conversar com quem importa.</span><span lang="en">Made for talking with the people who matter.</span></span>
+  </div>
+</footer>
+
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  // Put the real installer address here when the file is online.
+  var WINDOWS_DOWNLOAD_URL = "https://github.com/ArthurCiccone07/orbly-download/releases/latest/download/Orbly-Setup.exe";
+
+  (function () {
+    var root = document.getElementById("root");
+
+    function setLang(l) {
+      root.setAttribute("data-lang", l);
+      document.documentElement.lang = l === "pt" ? "pt-BR" : "en";
+      document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-set-lang") === l));
+      });
+      try { localStorage.setItem("orbly-lang", l); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem("orbly-lang"); } catch (e) {}
+    var nav = (navigator.language || "pt").toLowerCase();
+    setLang(saved || (nav.indexOf("pt") === 0 ? "pt" : "en"));
+    document.querySelectorAll("[data-set-lang]").forEach(function (b) {
+      b.addEventListener("click", function () { setLang(b.getAttribute("data-set-lang")); });
+    });
+
+    var toast = document.getElementById("toast"), t;
+    function say(msg) {
+      toast.textContent = msg; toast.classList.add("show");
+      clearTimeout(t); t = setTimeout(function () { toast.classList.remove("show"); }, 3200);
+    }
+    // With a real address every download button downloads; until then, the
+    // top buttons jump to the download section and the Windows card explains.
+    document.querySelectorAll(".js-download").forEach(function (a) {
+      if (WINDOWS_DOWNLOAD_URL) { a.href = WINDOWS_DOWNLOAD_URL; return; }
+      if (a.id !== "dl-windows") return;
+      a.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        say(root.getAttribute("data-lang") === "pt"
+          ? "Prévia: o download entra quando o site for pro ar."
+          : "Preview: the download goes live when the site launches.");
+      });
+    });
+
+    // twinkling stars
+    var c = document.getElementById("stars"), ctx = c.getContext && c.getContext("2d");
+    if (!ctx) return;
+    var stars = [], dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var still = true; // stars stay still, like the static logo
+    function resize() {
+      c.width = innerWidth * dpr; c.height = innerHeight * dpr;
+      var n = Math.round(innerWidth * innerHeight / 5200);
+      stars = [];
+      for (var i = 0; i < n; i++) stars.push({
+        x: Math.random() * c.width, y: Math.random() * c.height,
+        r: (Math.random() * 1.1 + 0.3) * dpr, p: Math.random() * 6.28, s: 0.4 + Math.random() * 1.2,
+        h: Math.random() < 0.15 ? "155,140,255" : (Math.random() < 0.1 ? "46,196,166" : "241,240,255")
+      });
+    }
+    function draw(time) {
+      ctx.clearRect(0, 0, c.width, c.height);
+      for (var i = 0; i < stars.length; i++) {
+        var st = stars[i], a = still ? 0.6 : 0.35 + 0.45 * (0.5 + 0.5 * Math.sin(st.p + time / 1000 * st.s));
+        ctx.fillStyle = "rgba(" + st.h + "," + a.toFixed(2) + ")";
+        ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, 6.283); ctx.fill();
+      }
+      if (!still) requestAnimationFrame(draw);
+    }
+    resize(); addEventListener("resize", function () { resize(); if (still) draw(0); });
+    requestAnimationFrame(draw);
+  })();
+</script>
+</body>
+</html>
