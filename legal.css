@@ -22,9 +22,20 @@ a { color: var(--planet); }
 .top { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: rgba(11, 20, 19, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 5; }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; padding-block: 14px; }
 .brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 600; font-size: 22px; color: var(--text); text-decoration: none; }
-.langs { display: flex; gap: 4px; background: var(--panel); border: 1px solid var(--line); border-radius: 99px; padding: 3px; }
-.langs button { border: 0; background: none; color: var(--muted); font: 600 13px var(--body); padding: 6px 12px; border-radius: 99px; cursor: pointer; }
-.langs button[aria-pressed="true"] { background: var(--planet); color: #04342c; }
+.lang-picker { position: relative; }
+.lang-button { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px; border-radius: 99px; border: 1px solid var(--line); background: var(--panel); color: var(--text); font: 600 13px/1 var(--body); cursor: pointer; }
+.lang-button:hover { border-color: var(--planet); }
+.lang-button .muted { color: var(--muted); font-weight: 500; }
+.lang-menu { position: absolute; right: 0; top: 44px; width: 240px; max-height: 60vh; overflow-y: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 6px; box-shadow: 0 14px 36px #000a; display: flex; flex-direction: column; gap: 1px; z-index: 20; }
+.lang-menu[hidden] { display: none; }
+.lang-option { display: flex; align-items: center; gap: 12px; width: 100%; padding: 9px 12px; border: 0; background: none; border-radius: 99px; color: var(--text); font: 500 15px/1.2 var(--body); text-align: start; cursor: pointer; }
+.lang-option:hover { background: rgba(255,255,255,.06); }
+.lang-gem { width: 14px; height: 14px; flex-shrink: 0; transform: rotate(45deg); border-radius: 3px; border: 1.5px solid var(--muted); display: inline-flex; align-items: center; justify-content: center; }
+.lang-option.active .lang-gem { background: var(--planet); border-color: var(--planet); color: #04342c; }
+.lang-gem > svg { transform: rotate(-45deg); }
+.lang-notice { background: var(--panel); border: 1px solid var(--planet); border-radius: 14px; padding: 12px 16px; color: var(--text); font-size: 15px; margin: 0 0 22px; }
+[dir="rtl"] .lang-menu { right: auto; left: 0; }
+[dir="rtl"] ul, [dir="rtl"] ol { padding-left: 0; padding-right: 22px; }
 .brand { text-transform: lowercase; }
 
 main { padding-block: 40px 72px; }

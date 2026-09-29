@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Perguntas frequentes sobre o Orbly: instalar, criar servidor, adicionar amigos, compartilhar tela, apertar pra falar e mais.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Perguntas frequentes · Orbly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="legal.css">
+<style>
+  /* Perguntas frequentes: cada pergunta e um cartao que abre */
+  .intro { color: var(--muted); font-size: 17px; margin: 0 0 28px; }
+  .faq-group { margin-top: 34px; }
+  .faq-group h2 { display: flex; align-items: center; gap: 14px; margin: 0 0 12px; }
+  .faq-group h2 .gem { width: 30px; height: 30px; border-radius: 8px; background: var(--planet); transform: rotate(45deg); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin: 0 4px; }
+  .faq-group h2 .gem svg { transform: rotate(-45deg); width: 16px; height: 16px; stroke: #04342c; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  details { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; margin-bottom: 8px; transition: border-color .15s; }
+  details[open] { border-color: var(--planet); }
+  summary { list-style: none; cursor: pointer; padding: 15px 20px; font: 600 17px/1.4 var(--display); color: var(--text); display: flex; justify-content: space-between; align-items: center; gap: 14px; border-radius: 18px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--planet); font: 500 24px/1 var(--display); flex-shrink: 0; transition: transform .15s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  summary:hover { color: var(--planet); }
+  .answer { padding: 0 20px 16px; }
+  .answer p:last-child, .answer ol:last-child { margin-bottom: 0; }
+  .answer ol { padding-left: 22px; margin: 0 0 12px; }
+  .answer ol li { margin-bottom: 6px; color: var(--soft); }
+  kbd { font: 600 14px var(--body); background: var(--space); border: 1px solid var(--line); border-radius: 8px; padding: 2px 8px; color: var(--text); }
+  .help { margin-top: 44px; background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 24px; text-align: center; }
+  .help h2 { margin: 0 0 6px; }
+  .help p { margin: 0; color: var(--muted); }
+  .help a { font-weight: 600; }
+</style>
+</head>
+<body>
+<div id="root" data-lang="pt">
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="favicon.svg" width="32" height="32" alt="">Orbly</a>
+    <div class="langs"></div>
+  </div>
+</header>
+
+<main class="wrap">
+<article lang="pt">
+  <h1>Perguntas frequentes</h1>
+  <p class="intro">O que a galera mais pergunta sobre o Orbly, respondido sem enrolação.</p>
+
+  <section class="faq-group">
+    <h2><span class="gem"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span>Instalar</h2>
+    <details><summary>O Orbly é grátis?</summary><div class="answer"><p>Sim. Chat, voz, câmera e tela compartilhada, tudo de graça e sem anúncios.</p></div></details>
+    <details><summary>Como instalo no Windows?</summary><div class="answer"><ol><li>Clique em <strong>Baixar para Windows</strong> na página inicial.</li><li>Abra o arquivo <strong>Orbly-Setup.exe</strong> que foi baixado.</li><li>Siga as telas do instalador. Leva menos de um minuto.</li></ol></div></details>
+    <details><summary>Apareceu um aviso azul do Windows. E agora?</summary><div class="answer"><p>É o "Windows protegeu o seu computador", que aparece em programas novos que a Microsoft ainda não conhece. O Orbly é seguro. Clique em <strong>Mais informações</strong> e depois em <strong>Executar assim mesmo</strong>.</p></div></details>
+    <details><summary>Como atualizo o Orbly?</summary><div class="answer"><p>Não precisa fazer nada: o app baixa as novidades sozinho e instala quando você fecha e abre de novo.</p></div></details>
+    <details><summary>Tem para Mac, celular ou navegador?</summary><div class="answer"><p>Por enquanto só para Windows. As versões para iPhone e para o navegador estão sendo feitas e vão sair juntas.</p></div></details>
+  </section>
+
+  <section class="faq-group">
+    <h2><span class="gem"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M19 8v6M16 11h6"/></svg></span>Conta e amigos</h2>
+    <details><summary>Qual é a idade mínima?</summary><div class="answer"><p>13 anos. Quem tem menos de 18 precisa da autorização dos pais ou responsáveis.</p></div></details>
+    <details><summary>Qual é a diferença entre nome de exibição e nome de usuário?</summary><div class="answer"><p>O <strong>nome de exibição</strong> é como todo mundo te vê e te acha. O <strong>nome de usuário</strong> serve só para entrar na conta: ninguém mais vê o seu.</p></div></details>
+    <details><summary>Como adiciono um amigo?</summary><div class="answer"><p>Em <strong>Amigos</strong>, digite o nome que aparece para a pessoa e escolha ela na lista pela foto. Quem está num servidor com você aparece primeiro. Também dá para clicar com o botão direito em alguém num servidor e escolher <strong>Adicionar amigo</strong>.</p></div></details>
+    <details><summary>Esqueci minha senha.</summary><div class="answer"><p>Na tela de entrar, clique em <strong>Esqueci minha senha</strong>. Você recebe um e-mail com o link para criar uma senha nova.</p></div></details>
+    <details><summary>Como troco minha foto ou meu nome?</summary><div class="answer"><p>Clique na engrenagem no canto de cima, à direita. Em <strong>Minha conta</strong> você troca o nome de exibição e em <strong>Perfil</strong>, a foto.</p></div></details>
+  </section>
+
+  <section class="faq-group">
+    <h2><span class="gem"><svg viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"/></svg></span>Servidores</h2>
+    <details><summary>Como crio um servidor?</summary><div class="answer"><p>Clique no <strong>+</strong> ao lado dos servidores, lá em cima, e dê um nome. Ele já vem com um canal de texto e uma sala de voz.</p></div></details>
+    <details><summary>Como chamo meus amigos para o servidor?</summary><div class="answer"><p>No servidor, clique no botão de <strong>convidar</strong> (o ícone de pessoa com +) e mande o código para quem você quiser. A pessoa clica no <strong>+</strong> lá em cima, escolhe <strong>Entrar com convite</strong> e cola o código.</p></div></details>
+    <details><summary>Como coloco foto no servidor ou troco o nome?</summary><div class="answer"><p>Se você é o dono, clique na engrenagem ao lado do nome do servidor.</p></div></details>
+    <details><summary>Como expulso ou bano alguém?</summary><div class="answer"><p>Só o dono do servidor pode. Clique com o botão direito na pessoa e escolha <strong>Expulsar</strong> ou <strong>Banir</strong>. Quem foi banido não volta nem com convite.</p></div></details>
+  </section>
+
+  <section class="faq-group">
+    <h2><span class="gem"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4M8 21h8"/></svg></span>Calls, tela e som</h2>
+    <details><summary>Como entro numa call?</summary><div class="answer"><p>Clique numa sala de voz do servidor e depois em <strong>Entrar na call</strong>. Para ligar para um amigo, vá em <strong>Amigos</strong> e clique no telefone ao lado do nome dele.</p></div></details>
+    <details><summary>Como compartilho minha tela com som?</summary><div class="answer"><p>Na call, clique no botão de <strong>compartilhar tela</strong> e escolha a tela ou a janela. O som do computador vai junto (filme, música, jogo), sem eco da call. Quem assiste ajusta o volume da tela em cima dela.</p></div></details>
+    <details><summary>O que é "apertar pra falar"?</summary><div class="answer"><p>Seu microfone só fica ligado enquanto você segura uma tecla. Bom para jogar sem mandar barulho para a call. Ligue em <strong>Configurações &gt; Atalhos</strong> e escolha a tecla que quiser. Funciona mesmo com o jogo aberto na frente.</p></div></details>
+    <details><summary>Qual é a diferença entre mutar e desligar o fone?</summary><div class="answer"><p><strong>Mutar</strong> desliga só o seu microfone. <strong>Desligar o fone</strong> faz você parar de ouvir todo mundo (e o microfone desliga junto). O losango vermelho ao lado do nome mostra qual dos dois a pessoa fez.</p></div></details>
+    <details><summary>Alguém está muito alto ou muito baixo.</summary><div class="answer"><p>Clique com o botão direito na pessoa e ajuste o volume dela de 0 a 200%. Só você ouve a diferença. Dá para silenciar ela só para você também.</p></div></details>
+    <details><summary>Ninguém me ouve. O que faço?</summary><div class="answer"><p>Abra <strong>Configurações &gt; Voz e vídeo</strong>, escolha o microfone certo e use o teste para ver se a barrinha mexe quando você fala. Se não mexer, confira se o Windows deixou o Orbly usar o microfone (Configurações do Windows &gt; Privacidade &gt; Microfone).</p></div></details>
+  </section>
+
+  <section class="faq-group">
+    <h2><span class="gem"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg></span>Chat</h2>
+    <details><summary>Como chamo alguém numa mensagem?</summary><div class="answer"><p>Digite <kbd>@</kbd> e escolha a pessoa na lista. Ela recebe um aviso e vê a mensagem destacada.</p></div></details>
+    <details><summary>Como mando foto ou arquivo?</summary><div class="answer"><p>Clique no clipe ao lado da caixa de mensagem, arraste o arquivo para a conversa ou cole uma imagem com <kbd>Ctrl</kbd> + <kbd>V</kbd>. Cada arquivo pode ter até 8 MB.</p></div></details>
+    <details><summary>Dá para editar ou apagar uma mensagem?</summary><div class="answer"><p>Sim. Clique com o botão direito na mensagem. Você pode editar as suas, apagar para todo mundo ou só para você, responder e reagir com emoji. Seta para cima na caixa vazia edita a sua última mensagem.</p></div></details>
+    <details><summary>Alguém mandou algo que não devia.</summary><div class="answer"><p>Clique com o botão direito na mensagem e escolha <strong>Denunciar</strong>. A moderação do Orbly analisa e pode suspender a conta.</p></div></details>
+  </section>
+
+  <div class="help">
+    <h2>Não achou sua resposta?</h2>
+    <p>Manda um e-mail para <a href="mailto:contato@orbly.chat">contato@orbly.chat</a>. A gente responde.</p>
+  </div>
+</article>
+
+<article lang="en">
+  <h1 data-t="faq.title">Frequently asked questions</h1>
+  <p class="intro" data-t="faq.intro">What people ask most about Orbly, answered without the fluff.</p>
+
+  <section class="faq-group">
+    <h2><span class="gem"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><span data-t="faq.g1">Installing</span></h2>
+    <details><summary data-t="faq.q1">Is Orbly free?</summary><div class="answer" data-t="faq.a1"><p>Yes. Chat, voice, camera and screen sharing, all free and with no ads.</p></div></details>
+    <details><summary data-t="faq.q2">How do I install it on Windows?</summary><div class="answer" data-t="faq.a2"><ol><li>Click <strong>Download for Windows</strong> on the home page.</li><li>Open the <strong>Orbly-Setup.exe</strong> file you downloaded.</li><li>Follow the installer. It takes under a minute.</li></ol></div></details>
+    <details><summary data-t="faq.q3">Windows showed a blue warning. What now?</summary><div class="answer" data-t="faq.a3"><p>That's "Windows protected your PC", which shows up for new programs Microsoft doesn't know yet. Orbly is safe. Click <strong>More info</strong>, then <strong>Run anyway</strong>.</p></div></details>
+    <details><summary data-t="faq.q4">How do I update Orbly?</summary><div class="answer" data-t="faq.a4"><p>You don't have to do anything: the app downloads updates by itself and installs them when you close and reopen it.</p></div></details>
+    <details><summary data-t="faq.q5">Is there a Mac, phone or browser version?</summary><div class="answer" data-t="faq.a5"><p>Windows only for now. The iPhone and browser versions are in the works and will launch together.</p></div></details>
+  </section>
+
+  <section class="faq-group">
+    <h2><span class="gem"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M19 8v6M16 11h6"/></svg></span><span data-t="faq.g2">Account and friends</span></h2>
+    <details><summary data-t="faq.q6">What's the minimum age?</summary><div class="answer" data-t="faq.a6"><p>13. Anyone under 18 needs a parent's or guardian's permission.</p></div></details>
+    <details><summary data-t="faq.q7">Display name vs. username?</summary><div class="answer" data-t="faq.a7"><p>Your <strong>display name</strong> is how everyone sees and finds you. Your <strong>username</strong> is only for signing in: nobody else sees it.</p></div></details>
+    <details><summary data-t="faq.q8">How do I add a friend?</summary><div class="answer" data-t="faq.a8"><p>In <strong>Friends</strong>, type the name the person shows in Orbly and pick them from the list by their photo. People who share a server with you show up first. You can also right-click someone in a server and choose <strong>Add friend</strong>.</p></div></details>
+    <details><summary data-t="faq.q9">I forgot my password.</summary><div class="answer" data-t="faq.a9"><p>On the sign-in screen, click <strong>Forgot my password</strong>. You'll get an email with a link to set a new one.</p></div></details>
+    <details><summary data-t="faq.q10">How do I change my photo or name?</summary><div class="answer" data-t="faq.a10"><p>Click the gear in the top right corner. <strong>My account</strong> changes your display name and <strong>Profile</strong> changes your photo.</p></div></details>
+  </section>
+
+  <section class="faq-group">
+    <h2><span class="gem"><svg viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"/></svg></span><span data-t="faq.g3">Servers</span></h2>
+    <details><summary data-t="faq.q11">How do I create a server?</summary><div class="answer" data-t="faq.a11"><p>Click the <strong>+</strong> next to the servers at the top and give it a name. It comes with a text channel and a voice room.</p></div></details>
+    <details><summary data-t="faq.q12">How do I invite my friends?</summary><div class="answer" data-t="faq.a12"><p>In the server, click the <strong>invite</strong> button (the person-with-a-plus icon) and send the code to whoever you want. They click the <strong>+</strong> at the top, choose <strong>Join with invite</strong> and paste the code.</p></div></details>
+    <details><summary data-t="faq.q13">How do I set a server photo or rename it?</summary><div class="answer" data-t="faq.a13"><p>If you own the server, click the gear next to its name.</p></div></details>
+    <details><summary data-t="faq.q14">How do I kick or ban someone?</summary><div class="answer" data-t="faq.a14"><p>Only the server owner can. Right-click the person and choose <strong>Kick</strong> or <strong>Ban</strong>. Banned people can't come back, even with an invite.</p></div></details>
+  </section>
+
+  <section class="faq-group">
+    <h2><span class="gem"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4M8 21h8"/></svg></span><span data-t="faq.g4">Calls, screen and sound</span></h2>
+    <details><summary data-t="faq.q15">How do I join a call?</summary><div class="answer" data-t="faq.a15"><p>Click a voice room in the server, then <strong>Join call</strong>. To call a friend, go to <strong>Friends</strong> and click the phone next to their name.</p></div></details>
+    <details><summary data-t="faq.q16">How do I share my screen with sound?</summary><div class="answer" data-t="faq.a16"><p>In the call, click <strong>share screen</strong> and pick a screen or window. Your computer's sound goes along (movies, music, games) with no call echo. Viewers adjust the screen's volume right on it.</p></div></details>
+    <details><summary data-t="faq.q17">What is push-to-talk?</summary><div class="answer" data-t="faq.a17"><p>Your mic is only on while you hold a key. Great for gaming without sending noise into the call. Turn it on in <strong>Settings &gt; Shortcuts</strong> and pick any key. It works even with a game in front.</p></div></details>
+    <details><summary data-t="faq.q18">Mute vs. deafen?</summary><div class="answer" data-t="faq.a18"><p><strong>Mute</strong> turns off only your microphone. <strong>Deafen</strong> stops you from hearing everyone (and mutes you too). The red diamond next to a name shows which one the person did.</p></div></details>
+    <details><summary data-t="faq.q19">Someone is too loud or too quiet.</summary><div class="answer" data-t="faq.a19"><p>Right-click the person and set their volume from 0 to 200%. Only you hear the difference. You can also silence them just for yourself.</p></div></details>
+    <details><summary data-t="faq.q20">Nobody can hear me.</summary><div class="answer" data-t="faq.a20"><p>Open <strong>Settings &gt; Voice and video</strong>, pick the right microphone and use the test to see if the bar moves when you talk. If it doesn't, check that Windows lets Orbly use the mic (Windows Settings &gt; Privacy &gt; Microphone).</p></div></details>
+  </section>
+
+  <section class="faq-group">
+    <h2><span class="gem"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg></span><span data-t="faq.g5">Chat</span></h2>
+    <details><summary data-t="faq.q21">How do I mention someone?</summary><div class="answer" data-t="faq.a21"><p>Type <kbd>@</kbd> and pick the person from the list. They get notified and see the message highlighted.</p></div></details>
+    <details><summary data-t="faq.q22">How do I send a photo or file?</summary><div class="answer" data-t="faq.a22"><p>Click the paperclip next to the message box, drag the file into the chat, or paste an image with <kbd>Ctrl</kbd> + <kbd>V</kbd>. Each file can be up to 8 MB.</p></div></details>
+    <details><summary data-t="faq.q23">Can I edit or delete a message?</summary><div class="answer" data-t="faq.a23"><p>Yes. Right-click the message. You can edit your own, delete for everyone or just for you, reply and react with emoji. Up arrow in the empty box edits your last message.</p></div></details>
+    <details><summary data-t="faq.q24">Someone sent something they shouldn't have.</summary><div class="answer" data-t="faq.a24"><p>Right-click the message and choose <strong>Report</strong>. Orbly's moderation reviews it and can suspend the account.</p></div></details>
+  </section>
+
+  <div class="help">
+    <h2 data-t="faq.help.title">Didn't find your answer?</h2>
+    <p data-t="faq.help.text">Email <a href="mailto:contato@orbly.chat">contato@orbly.chat</a>. We reply.</p>
+  </div>
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Orbly</span>
+    <nav>
+      <a href="/perguntas"><span lang="pt">Perguntas</span><span lang="en">FAQ</span></a>
+      <a href="/termos"><span lang="pt">Termos de uso</span><span lang="en">Terms of use</span></a>
+      <a href="/privacidade"><span lang="pt">Privacidade</span><span lang="en">Privacy</span></a>
+    </nav>
+  </div>
+</footer>
+</div>
+<script src="site-i18n.js"></script>
+</body>
+</html>
