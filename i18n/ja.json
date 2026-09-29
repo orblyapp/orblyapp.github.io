@@ -42,7 +42,6 @@
   "coming soon": "近日公開",
   "Terms of use": "利用規約",
   "Privacy": "プライバシー",
-
   "faq.title": "よくある質問",
   "faq.intro": "Orbly についてよく聞かれることに、まわりくどい説明なしで答えます。",
   "faq.g1": "インストール",
@@ -73,7 +72,7 @@
   "faq.q11": "サーバーはどうやって作りますか？",
   "faq.a11": "<p>上のサーバーの横にある <strong>+</strong> をクリックして名前を付けます。テキストチャンネルとボイスルームが最初から用意されています。</p>",
   "faq.q12": "友達はどうやって招待しますか？",
-  "faq.a12": "<p>サーバーで<strong>招待</strong>ボタン（+ 付きの人のアイコン）をクリックし、招待したい相手にコードを送ります。相手は上の <strong>+</strong> をクリックし、<strong>招待で参加</strong>を選んでコードを貼り付けます。</p>",
+  "faq.a12": "<p>サーバーで<strong>招待</strong>ボタン（+付きの人のアイコン）を押し、リンクをコピーして送りたい人に送ってください。リンクを開いた人が<strong>Orblyで開く</strong>を押すとサーバーに参加できます。リンクの有効期限や使える回数も選べます。</p>",
   "faq.q13": "サーバーに写真を付けたり名前を変えたりするには？",
   "faq.a13": "<p>オーナーなら、サーバー名の横にある歯車をクリックしてください。</p>",
   "faq.q14": "誰かをキックまたはBANするには？",
@@ -99,5 +98,19 @@
   "faq.q24": "誰かが送ってはいけないものを送りました。",
   "faq.a24": "<p>メッセージを右クリックして<strong>通報</strong>を選びます。Orbly のモデレーションが確認し、アカウントを停止することがあります。</p>",
   "faq.help.title": "答えが見つかりませんでしたか？",
-  "faq.help.text": "<a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a> までメールしてください。お返事します。"
+  "faq.help.text": "<a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a> までメールしてください。お返事します。",
+  "invite.loading": "招待を開いています...",
+  "invite.invited": "あなたは次のサーバーに招待されています",
+  "invite.members1": "メンバー1人",
+  "invite.membersN": "メンバー{n}人",
+  "invite.invitedBy": "{name}からの招待",
+  "invite.open": "Orblyで開く",
+  "invite.download": "Orblyをダウンロード",
+  "invite.hint": "まだOrblyを持っていませんか？ダウンロードしてインストールしてから「Orblyで開く」をクリックしてください。今はWindowsのみ対応です。",
+  "invite.invalidTitle": "この招待はもう使えません",
+  "invite.invalidText": "期限切れ、使用回数の上限、または取り消されました。招待してくれた人に新しいリンクを頼んでください。",
+  "invite.notFoundTitle": "ページが見つかりません",
+  "invite.notFoundText": "orbly.chatにこのアドレスはありません。",
+  "invite.home": "トップページへ",
+  "invite.title": "{server}への招待 · Orbly"
 }

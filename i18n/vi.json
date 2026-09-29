@@ -42,7 +42,6 @@
   "coming soon": "sắp có",
   "Terms of use": "Điều khoản sử dụng",
   "Privacy": "Quyền riêng tư",
-
   "faq.title": "Câu hỏi thường gặp",
   "faq.intro": "Những điều mọi người hay hỏi nhất về Orbly, trả lời thẳng vào vấn đề.",
   "faq.g1": "Cài đặt",
@@ -73,7 +72,7 @@
   "faq.q11": "Tạo máy chủ như thế nào?",
   "faq.a11": "<p>Nhấn <strong>+</strong> cạnh các máy chủ ở trên và đặt tên. Nó có sẵn một kênh văn bản và một phòng thoại.</p>",
   "faq.q12": "Mời bạn bè như thế nào?",
-  "faq.a12": "<p>Trong máy chủ, nhấn nút <strong>mời</strong> (biểu tượng người có dấu +) và gửi mã cho ai bạn muốn. Họ nhấn <strong>+</strong> ở trên, chọn <strong>Tham gia bằng lời mời</strong> và dán mã.</p>",
+  "faq.a12": "<p>Trong máy chủ, bấm nút <strong>mời</strong> (biểu tượng người có dấu +), sao chép liên kết và gửi cho người bạn muốn. Người mở liên kết bấm <strong>Mở trong Orbly</strong> là vào máy chủ. Bạn có thể chọn khi nào liên kết hết hạn và dùng được mấy lần.</p>",
   "faq.q13": "Đặt ảnh cho máy chủ hoặc đổi tên như thế nào?",
   "faq.a13": "<p>Nếu bạn là chủ, nhấn bánh răng cạnh tên máy chủ.</p>",
   "faq.q14": "Đuổi hoặc cấm ai đó như thế nào?",
@@ -99,5 +98,19 @@
   "faq.q24": "Ai đó gửi thứ không nên gửi.",
   "faq.a24": "<p>Nhấp chuột phải vào tin nhắn và chọn <strong>Báo cáo</strong>. Đội kiểm duyệt Orbly xem xét và có thể đình chỉ tài khoản.</p>",
   "faq.help.title": "Không tìm thấy câu trả lời?",
-  "faq.help.text": "Gửi email đến <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>. Chúng tôi sẽ trả lời."
+  "faq.help.text": "Gửi email đến <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>. Chúng tôi sẽ trả lời.",
+  "invite.loading": "Đang mở lời mời...",
+  "invite.invited": "Bạn được mời tham gia",
+  "invite.members1": "1 thành viên",
+  "invite.membersN": "{n} thành viên",
+  "invite.invitedBy": "Lời mời từ {name}",
+  "invite.open": "Mở trong Orbly",
+  "invite.download": "Tải Orbly",
+  "invite.hint": "Chưa có Orbly? Hãy tải về, cài đặt rồi bấm \"Mở trong Orbly\". Hiện chỉ có cho Windows.",
+  "invite.invalidTitle": "Lời mời này không còn hiệu lực",
+  "invite.invalidText": "Nó đã hết hạn, hết lượt dùng hoặc đã bị hủy. Hãy xin người mời bạn một liên kết mới.",
+  "invite.notFoundTitle": "Không tìm thấy trang",
+  "invite.notFoundText": "Địa chỉ này không có trên orbly.chat.",
+  "invite.home": "Về trang chủ",
+  "invite.title": "Lời mời vào {server} · Orbly"
 }

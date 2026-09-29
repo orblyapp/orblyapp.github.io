@@ -42,7 +42,6 @@
   "coming soon": "binnenkort",
   "Terms of use": "Gebruiksvoorwaarden",
   "Privacy": "Privacy",
-
   "faq.title": "Veelgestelde vragen",
   "faq.intro": "Wat mensen het vaakst vragen over Orbly, zonder omhaal beantwoord.",
   "faq.g1": "Installeren",
@@ -73,7 +72,7 @@
   "faq.q11": "Hoe maak ik een server?",
   "faq.a11": "<p>Klik op de <strong>+</strong> naast de servers bovenaan en geef hem een naam. Hij heeft meteen een tekstkanaal en een spraakkamer.</p>",
   "faq.q12": "Hoe nodig ik mijn vrienden uit?",
-  "faq.a12": "<p>Klik in de server op de knop <strong>uitnodigen</strong> (het persoon-met-plus-icoon) en stuur de code naar wie je wilt. Die persoon klikt bovenaan op de <strong>+</strong>, kiest <strong>Deelnemen met uitnodiging</strong> en plakt de code.</p>",
+  "faq.a12": "<p>Klik in de server op de knop <strong>uitnodigen</strong> (het persoonsicoon met een plus), kopieer de link en stuur hem naar wie je wilt. Wie de link opent, klikt op <strong>Openen in Orbly</strong> en wordt lid van de server. Je kunt kiezen wanneer de link verloopt en hoe vaak hij gebruikt mag worden.</p>",
   "faq.q13": "Hoe geef ik de server een foto of een andere naam?",
   "faq.a13": "<p>Als je de eigenaar bent, klik je op het tandwiel naast de servernaam.</p>",
   "faq.q14": "Hoe zet ik iemand eruit of verban ik iemand?",
@@ -99,5 +98,19 @@
   "faq.q24": "Iemand heeft iets gestuurd wat niet hoort.",
   "faq.a24": "<p>Klik met de rechtermuisknop op het bericht en kies <strong>Melden</strong>. De moderatie van Orbly bekijkt het en kan het account schorsen.</p>",
   "faq.help.title": "Antwoord niet gevonden?",
-  "faq.help.text": "Mail naar <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>. We antwoorden."
+  "faq.help.text": "Mail naar <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>. We antwoorden.",
+  "invite.loading": "Uitnodiging openen...",
+  "invite.invited": "Je bent uitgenodigd voor",
+  "invite.members1": "1 lid",
+  "invite.membersN": "{n} leden",
+  "invite.invitedBy": "Uitnodiging van {name}",
+  "invite.open": "Openen in Orbly",
+  "invite.download": "Orbly downloaden",
+  "invite.hint": "Heb je Orbly nog niet? Download het, installeer het en klik dan op Openen in Orbly. Voorlopig alleen voor Windows.",
+  "invite.invalidTitle": "Deze uitnodiging is niet meer geldig",
+  "invite.invalidText": "Hij is verlopen, heeft zijn limiet bereikt of is ingetrokken. Vraag wie je uitnodigde om een nieuwe link.",
+  "invite.notFoundTitle": "Pagina niet gevonden",
+  "invite.notFoundText": "Dit adres bestaat niet op orbly.chat.",
+  "invite.home": "Naar de startpagina",
+  "invite.title": "Uitnodiging voor {server} · Orbly"
 }

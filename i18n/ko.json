@@ -42,7 +42,6 @@
   "coming soon": "곧 출시",
   "Terms of use": "이용약관",
   "Privacy": "개인정보",
-
   "faq.title": "자주 묻는 질문",
   "faq.intro": "Orbly에 대해 사람들이 가장 많이 묻는 것들, 군더더기 없이 답합니다.",
   "faq.g1": "설치",
@@ -73,7 +72,7 @@
   "faq.q11": "서버는 어떻게 만드나요?",
   "faq.a11": "<p>위쪽 서버 옆의 <strong>+</strong>를 클릭하고 이름을 지으세요. 텍스트 채널 하나와 음성 방 하나가 기본으로 들어 있습니다.</p>",
   "faq.q12": "친구를 어떻게 초대하나요?",
-  "faq.a12": "<p>서버에서 <strong>초대</strong> 버튼(+가 있는 사람 아이콘)을 클릭하고 원하는 사람에게 코드를 보내세요. 그 사람은 위쪽의 <strong>+</strong>를 클릭하고 <strong>초대로 참여</strong>를 선택한 뒤 코드를 붙여넣습니다.</p>",
+  "faq.a12": "<p>서버에서 <strong>초대</strong> 버튼(+가 있는 사람 아이콘)을 누르고 링크를 복사해 원하는 사람에게 보내세요. 링크를 연 사람이 <strong>Orbly에서 열기</strong>를 누르면 서버에 참여해요. 링크가 언제 만료될지, 몇 번 쓸 수 있을지도 정할 수 있어요.</p>",
   "faq.q13": "서버 사진을 넣거나 이름을 바꾸려면?",
   "faq.a13": "<p>소유자라면 서버 이름 옆의 톱니바퀴를 클릭하세요.</p>",
   "faq.q14": "누군가를 추방하거나 차단하려면?",
@@ -99,5 +98,19 @@
   "faq.q24": "누군가 보내면 안 되는 것을 보냈어요.",
   "faq.a24": "<p>메시지를 마우스 오른쪽 버튼으로 클릭하고 <strong>신고</strong>를 선택하세요. Orbly 운영팀이 검토하고 계정을 정지할 수 있습니다.</p>",
   "faq.help.title": "답을 못 찾으셨나요?",
-  "faq.help.text": "<a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>으로 이메일을 보내세요. 답장해 드립니다."
+  "faq.help.text": "<a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>으로 이메일을 보내세요. 답장해 드립니다.",
+  "invite.loading": "초대를 여는 중...",
+  "invite.invited": "초대받은 서버",
+  "invite.members1": "멤버 1명",
+  "invite.membersN": "멤버 {n}명",
+  "invite.invitedBy": "{name}님의 초대",
+  "invite.open": "Orbly에서 열기",
+  "invite.download": "Orbly 다운로드",
+  "invite.hint": "아직 Orbly가 없나요? 다운로드해서 설치한 다음 \"Orbly에서 열기\"를 누르세요. 지금은 Windows만 지원해요.",
+  "invite.invalidTitle": "이 초대는 더 이상 유효하지 않아요",
+  "invite.invalidText": "만료되었거나, 사용 횟수를 다 썼거나, 취소되었어요. 초대한 사람에게 새 링크를 부탁하세요.",
+  "invite.notFoundTitle": "페이지를 찾을 수 없어요",
+  "invite.notFoundText": "orbly.chat에 없는 주소예요.",
+  "invite.home": "첫 페이지로 가기",
+  "invite.title": "{server} 초대 · Orbly"
 }

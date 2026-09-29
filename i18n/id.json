@@ -42,7 +42,6 @@
   "coming soon": "segera hadir",
   "Terms of use": "Ketentuan penggunaan",
   "Privacy": "Privasi",
-
   "faq.title": "Pertanyaan yang sering diajukan",
   "faq.intro": "Hal yang paling sering ditanyakan tentang Orbly, dijawab tanpa basa-basi.",
   "faq.g1": "Memasang",
@@ -73,7 +72,7 @@
   "faq.q11": "Bagaimana cara membuat server?",
   "faq.a11": "<p>Klik <strong>+</strong> di samping server di bagian atas dan beri nama. Sudah ada satu channel teks dan satu ruang suara.</p>",
   "faq.q12": "Bagaimana cara mengundang teman?",
-  "faq.a12": "<p>Di server, klik tombol <strong>undang</strong> (ikon orang dengan +) dan kirim kodenya ke siapa pun yang kamu mau. Orang itu klik <strong>+</strong> di atas, pilih <strong>Gabung dengan undangan</strong>, dan tempel kodenya.</p>",
+  "faq.a12": "<p>Di server, klik tombol <strong>undang</strong> (ikon orang dengan tanda +), salin tautannya, lalu kirim ke siapa saja. Orang yang membuka tautan klik <strong>Buka di Orbly</strong> dan bergabung ke server. Kamu bisa memilih kapan tautan berakhir dan berapa kali bisa dipakai.</p>",
   "faq.q13": "Bagaimana cara memasang foto server atau mengganti namanya?",
   "faq.a13": "<p>Kalau kamu pemiliknya, klik roda gigi di samping nama server.</p>",
   "faq.q14": "Bagaimana cara mengeluarkan atau melarang seseorang?",
@@ -99,5 +98,19 @@
   "faq.q24": "Ada yang mengirim sesuatu yang tidak seharusnya.",
   "faq.a24": "<p>Klik kanan pesannya dan pilih <strong>Laporkan</strong>. Moderasi Orbly meninjaunya dan bisa menangguhkan akun itu.</p>",
   "faq.help.title": "Tidak menemukan jawabanmu?",
-  "faq.help.text": "Kirim email ke <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>. Kami membalas."
+  "faq.help.text": "Kirim email ke <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>. Kami membalas.",
+  "invite.loading": "Membuka undangan...",
+  "invite.invited": "Kamu diundang untuk bergabung ke",
+  "invite.members1": "1 anggota",
+  "invite.membersN": "{n} anggota",
+  "invite.invitedBy": "Undangan dari {name}",
+  "invite.open": "Buka di Orbly",
+  "invite.download": "Unduh Orbly",
+  "invite.hint": "Belum punya Orbly? Unduh, pasang, lalu klik Buka di Orbly. Saat ini hanya untuk Windows.",
+  "invite.invalidTitle": "Undangan ini sudah tidak berlaku",
+  "invite.invalidText": "Sudah kedaluwarsa, mencapai batas pemakaian, atau dibatalkan. Minta tautan baru ke orang yang mengundangmu.",
+  "invite.notFoundTitle": "Halaman tidak ditemukan",
+  "invite.notFoundText": "Alamat itu tidak ada di orbly.chat.",
+  "invite.home": "Ke halaman utama",
+  "invite.title": "Undangan ke {server} · Orbly"
 }

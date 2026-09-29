@@ -42,7 +42,6 @@
   "coming soon": "即將推出",
   "Terms of use": "使用條款",
   "Privacy": "隱私",
-
   "faq.title": "常見問題",
   "faq.intro": "大家最常問的關於 Orbly 的問題，直接了當地回答。",
   "faq.g1": "安裝",
@@ -73,7 +72,7 @@
   "faq.q11": "如何建立伺服器？",
   "faq.a11": "<p>點擊上方伺服器旁邊的 <strong>+</strong>，取個名字。它內建一個文字頻道和一個語音房。</p>",
   "faq.q12": "如何邀請朋友？",
-  "faq.a12": "<p>在伺服器裡點擊<strong>邀請</strong>按鈕（帶 + 號的人形圖示），把邀請碼傳給想邀請的人。對方點擊上方的 <strong>+</strong>，選擇<strong>用邀請加入</strong>，貼上邀請碼。</p>",
+  "faq.a12": "<p>在伺服器裡點<strong>邀請</strong>按鈕（帶 + 的人像圖示），複製連結傳給你想邀請的人。對方打開連結，點<strong>在 Orbly 中打開</strong>就能加入伺服器。你還可以設定連結什麼時候失效、能用幾次。</p>",
   "faq.q13": "如何幫伺服器設定圖片或改名？",
   "faq.a13": "<p>如果你是擁有者，點擊伺服器名稱旁邊的齒輪。</p>",
   "faq.q14": "如何踢出或封禁某人？",
@@ -99,5 +98,19 @@
   "faq.q24": "有人傳了不該傳的東西。",
   "faq.a24": "<p>對訊息按右鍵，選擇<strong>檢舉</strong>。Orbly 審核團隊會查看，並可能停用該帳號。</p>",
   "faq.help.title": "沒找到答案？",
-  "faq.help.text": "寄信到 <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>。我們會回覆。"
+  "faq.help.text": "寄信到 <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>。我們會回覆。",
+  "invite.loading": "正在打開邀請...",
+  "invite.invited": "你被邀請加入",
+  "invite.members1": "1 位成員",
+  "invite.membersN": "{n} 位成員",
+  "invite.invitedBy": "來自 {name} 的邀請",
+  "invite.open": "在 Orbly 中打開",
+  "invite.download": "下載 Orbly",
+  "invite.hint": "還沒有 Orbly？先下載安裝，然後點「在 Orbly 中打開」。目前僅支援 Windows。",
+  "invite.invalidTitle": "這個邀請已經失效了",
+  "invite.invalidText": "它已過期、達到使用次數上限或被取消了。請向邀請你的人要一個新連結。",
+  "invite.notFoundTitle": "找不到頁面",
+  "invite.notFoundText": "orbly.chat 上沒有這個網址。",
+  "invite.home": "回到首頁",
+  "invite.title": "加入 {server} 的邀請 · Orbly"
 }

@@ -42,7 +42,6 @@
   "coming soon": "malapit na",
   "Terms of use": "Mga tuntunin ng paggamit",
   "Privacy": "Privacy",
-
   "faq.title": "Mga madalas itanong",
   "faq.intro": "Ang pinakamadalas itanong tungkol sa Orbly, sinagot nang walang paligoy-ligoy.",
   "faq.g1": "Pag-install",
@@ -73,7 +72,7 @@
   "faq.q11": "Paano gumawa ng server?",
   "faq.a11": "<p>I-click ang <strong>+</strong> sa tabi ng mga server sa itaas at bigyan ito ng pangalan. May kasama na itong text channel at voice room.</p>",
   "faq.q12": "Paano imbitahin ang mga kaibigan ko?",
-  "faq.a12": "<p>Sa server, i-click ang button na <strong>imbitahin</strong> (ang icon ng tao na may +) at ipadala ang code sa kahit sino. I-click nila ang <strong>+</strong> sa itaas, piliin ang <strong>Sumali gamit ang invite</strong> at i-paste ang code.</p>",
+  "faq.a12": "<p>Sa server, i-click ang button na <strong>imbitahan</strong> (icon ng tao na may +), kopyahin ang link at ipadala sa gusto mo. I-click ng magbubukas ng link ang <strong>Buksan sa Orbly</strong> at makakasali na siya sa server. Puwede mong piliin kung kailan mag-e-expire ang link at ilang beses ito magagamit.</p>",
   "faq.q13": "Paano lagyan ng larawan ang server o palitan ang pangalan?",
   "faq.a13": "<p>Kung ikaw ang may-ari, i-click ang gear sa tabi ng pangalan ng server.</p>",
   "faq.q14": "Paano mag-kick o mag-ban ng tao?",
@@ -99,5 +98,19 @@
   "faq.q24": "May nagpadala ng bagay na hindi dapat.",
   "faq.a24": "<p>I-right-click ang mensahe at piliin ang <strong>I-report</strong>. Susuriin ito ng moderation ng Orbly at puwedeng i-suspend ang account.</p>",
   "faq.help.title": "Hindi nahanap ang sagot mo?",
-  "faq.help.text": "Mag-email sa <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>. Sasagot kami."
+  "faq.help.text": "Mag-email sa <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>. Sasagot kami.",
+  "invite.loading": "Binubuksan ang imbitasyon...",
+  "invite.invited": "Inimbitahan kang sumali sa",
+  "invite.members1": "1 miyembro",
+  "invite.membersN": "{n} miyembro",
+  "invite.invitedBy": "Imbitasyon mula kay {name}",
+  "invite.open": "Buksan sa Orbly",
+  "invite.download": "I-download ang Orbly",
+  "invite.hint": "Wala ka pang Orbly? I-download, i-install, tapos i-click ang Buksan sa Orbly. Windows lang muna sa ngayon.",
+  "invite.invalidTitle": "Hindi na valid ang imbitasyong ito",
+  "invite.invalidText": "Nag-expire na, naabot na ang limitasyon ng gamit, o kinansela. Humingi ng bagong link sa nag-imbita sa iyo.",
+  "invite.notFoundTitle": "Hindi nahanap ang pahina",
+  "invite.notFoundText": "Walang ganitong address sa orbly.chat.",
+  "invite.home": "Pumunta sa home page",
+  "invite.title": "Imbitasyon sa {server} · Orbly"
 }

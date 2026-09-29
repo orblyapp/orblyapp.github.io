@@ -42,7 +42,6 @@
   "coming soon": "yakında",
   "Terms of use": "Kullanım koşulları",
   "Privacy": "Gizlilik",
-
   "faq.title": "Sık sorulan sorular",
   "faq.intro": "İnsanların Orbly hakkında en çok sorduğu şeyler, lafı dolandırmadan.",
   "faq.g1": "Kurulum",
@@ -73,7 +72,7 @@
   "faq.q11": "Nasıl sunucu oluştururum?",
   "faq.a11": "<p>Üstte sunucuların yanındaki <strong>+</strong>'ya tıkla ve bir ad ver. Bir metin kanalı ve bir ses odasıyla gelir.</p>",
   "faq.q12": "Arkadaşlarımı nasıl davet ederim?",
-  "faq.a12": "<p>Sunucuda <strong>davet et</strong> düğmesine (artı işaretli kişi simgesi) tıkla ve kodu istediğine gönder. Kişi üstteki <strong>+</strong>'ya tıklar, <strong>Davetle katıl</strong>'ı seçer ve kodu yapıştırır.</p>",
+  "faq.a12": "<p>Sunucuda <strong>davet et</strong> düğmesine (artılı kişi simgesi) tıkla, bağlantıyı kopyala ve istediğin kişiye gönder. Bağlantıyı açan kişi <strong>Orbly’de aç</strong>’a tıklar ve sunucuya katılır. Bağlantının ne zaman sona ereceğini ve kaç kez kullanılabileceğini seçebilirsin.</p>",
   "faq.q13": "Sunucuya nasıl fotoğraf koyarım veya adını değiştiririm?",
   "faq.a13": "<p>Sahibiysen, sunucu adının yanındaki dişliye tıkla.</p>",
   "faq.q14": "Birini nasıl atarım veya yasaklarım?",
@@ -99,5 +98,19 @@
   "faq.q24": "Biri göndermemesi gereken bir şey gönderdi.",
   "faq.a24": "<p>Mesaja sağ tıkla ve <strong>Şikayet et</strong>'i seç. Orbly moderasyonu inceler ve hesabı askıya alabilir.</p>",
   "faq.help.title": "Cevabını bulamadın mı?",
-  "faq.help.text": "<a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a> adresine yaz. Cevap veriyoruz."
+  "faq.help.text": "<a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a> adresine yaz. Cevap veriyoruz.",
+  "invite.loading": "Davet açılıyor...",
+  "invite.invited": "Şu sunucuya davet edildin",
+  "invite.members1": "1 üye",
+  "invite.membersN": "{n} üye",
+  "invite.invitedBy": "{name} davet etti",
+  "invite.open": "Orbly’de aç",
+  "invite.download": "Orbly’yi indir",
+  "invite.hint": "Henüz Orbly yok mu? İndir, kur ve sonra Orbly’de aç’a tıkla. Şimdilik sadece Windows için.",
+  "invite.invalidTitle": "Bu davet artık geçerli değil",
+  "invite.invalidText": "Süresi doldu, kullanım sınırına ulaştı ya da iptal edildi. Seni davet eden kişiden yeni bir bağlantı iste.",
+  "invite.notFoundTitle": "Sayfa bulunamadı",
+  "invite.notFoundText": "Bu adres orbly.chat’te yok.",
+  "invite.home": "Ana sayfaya git",
+  "invite.title": "{server} daveti · Orbly"
 }

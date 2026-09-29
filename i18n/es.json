@@ -42,7 +42,6 @@
   "coming soon": "muy pronto",
   "Terms of use": "Términos de uso",
   "Privacy": "Privacidad",
-
   "faq.title": "Preguntas frecuentes",
   "faq.intro": "Lo que más pregunta la gente sobre Orbly, respondido sin rodeos.",
   "faq.g1": "Instalar",
@@ -73,7 +72,7 @@
   "faq.q11": "¿Cómo creo un servidor?",
   "faq.a11": "<p>Haz clic en el <strong>+</strong> junto a los servidores, arriba, y ponle un nombre. Ya viene con un canal de texto y una sala de voz.</p>",
   "faq.q12": "¿Cómo invito a mis amigos?",
-  "faq.a12": "<p>En el servidor, haz clic en el botón de <strong>invitar</strong> (el ícono de persona con +) y manda el código a quien quieras. La persona hace clic en el <strong>+</strong> de arriba, elige <strong>Entrar con invitación</strong> y pega el código.</p>",
+  "faq.a12": "<p>En el servidor, haz clic en el botón de <strong>invitar</strong> (el ícono de persona con +), copia el enlace y mándalo a quien quieras. Quien abra el enlace hace clic en <strong>Abrir en Orbly</strong> y entra al servidor. Puedes elegir cuándo vence el enlace y cuántas veces se puede usar.</p>",
   "faq.q13": "¿Cómo le pongo foto al servidor o le cambio el nombre?",
   "faq.a13": "<p>Si eres el dueño, haz clic en el engranaje junto al nombre del servidor.</p>",
   "faq.q14": "¿Cómo expulso o baneo a alguien?",
@@ -99,5 +98,19 @@
   "faq.q24": "Alguien mandó algo que no debía.",
   "faq.a24": "<p>Haz clic derecho en el mensaje y elige <strong>Denunciar</strong>. La moderación de Orbly lo revisa y puede suspender la cuenta.</p>",
   "faq.help.title": "¿No encontraste tu respuesta?",
-  "faq.help.text": "Escribe a <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>. Respondemos."
+  "faq.help.text": "Escribe a <a href=\"mailto:contato@orbly.chat\">contato@orbly.chat</a>. Respondemos.",
+  "invite.loading": "Abriendo la invitación...",
+  "invite.invited": "Te invitaron a unirte a",
+  "invite.members1": "1 miembro",
+  "invite.membersN": "{n} miembros",
+  "invite.invitedBy": "Invitación de {name}",
+  "invite.open": "Abrir en Orbly",
+  "invite.download": "Descargar Orbly",
+  "invite.hint": "¿Todavía no tienes Orbly? Descárgalo, instálalo y luego haz clic en Abrir en Orbly. Por ahora solo para Windows.",
+  "invite.invalidTitle": "Esta invitación ya no es válida",
+  "invite.invalidText": "Venció, llegó a su límite de usos o fue cancelada. Pide un enlace nuevo a quien te invitó.",
+  "invite.notFoundTitle": "Página no encontrada",
+  "invite.notFoundText": "Esa dirección no existe en orbly.chat.",
+  "invite.home": "Ir a la página de inicio",
+  "invite.title": "Invitación a {server} · Orbly"
 }
