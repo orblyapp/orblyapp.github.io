@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Orbly</title>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
+  #box { display: flex; justify-content: center; padding: 2px 0; }
+</style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+// Verificacao "sou humano" do Orbly (Cloudflare Turnstile). O app de computador
+// roda em orbly://app e mostra esta pagina num quadro; ela so conversa com o app.
+(function () {
+  var ALLOWED = ['orbly://app', 'http://localhost:5199'];
+  var parentOrigin = (window.location.ancestorOrigins && window.location.ancestorOrigins[0]) || '';
+  if (window.parent === window || ALLOWED.indexOf(parentOrigin) === -1) return;
+
+  var q = new URLSearchParams(window.location.search);
+  var sitekey = q.get('sitekey') || '';
+  var LANGS = {
+    pt: 'pt-br', en: 'en', es: 'es', fr: 'fr', de: 'de', it: 'it', nl: 'nl', pl: 'pl', ru: 'ru', uk: 'uk', tr: 'tr',
+    ar: 'ar', hi: 'hi', id: 'id', fil: 'tl', vi: 'vi', th: 'th', ja: 'ja', ko: 'ko', 'zh-Hans': 'zh-cn', 'zh-Hant': 'zh-tw',
+  };
+  var language = LANGS[q.get('lang')] || 'auto';
+  var box = document.getElementById('box');
+  var widget = null;
+
+  function send(msg) { window.parent.postMessage(msg, parentOrigin); }
+  function size() { send({ type: 'orbly-human-size', height: box.offsetHeight + 4 }); }
+
+  window.orblyTurnstileLoaded = function () {
+    widget = window.turnstile.render(box, {
+      sitekey: sitekey,
+      theme: 'dark',
+      size: 'flexible',
+      language: language,
+      callback: function (token) { send({ type: 'orbly-human-token', token: token }); },
+      'expired-callback': function () { send({ type: 'orbly-human-expired' }); },
+      'error-callback': function () { send({ type: 'orbly-human-error' }); },
+    });
+    size();
+    if (window.ResizeObserver) new ResizeObserver(size).observe(box);
+  };
+
+  window.addEventListener('message', function (e) {
+    if (e.origin !== parentOrigin || !e.data) return;
+    if (e.data.type === 'orbly-human-reset' && widget !== null) window.turnstile.reset(widget);
+  });
+
+  var s = document.createElement('script');
+  s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=orblyTurnstileLoaded';
+  s.async = true;
+  s.onerror = function () { send({ type: 'orbly-human-error' }); };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
