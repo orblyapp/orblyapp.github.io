@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex">
+<title>Orbly player</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  #player { position: absolute; inset: 0; width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<div id="player"></div>
+<script>
+// Player do "Assistir junto" do Orbly. O app abre esta pagina num iframe (o
+// YouTube precisa de uma pagina https de verdade) e manda comandos por
+// postMessage: load, play, pause, seek, rate, volume. A pagina responde com
+// ready, state, time e error. Nada e gravado; o video vem direto do YouTube.
+(function () {
+  var parentWin = window.parent;
+  var player = null;
+  var ready = false;
+  var waiting = [];
+  var NAMES = { '-1': 'unstarted', 0: 'ended', 1: 'playing', 2: 'paused', 3: 'buffering', 5: 'cued' };
+
+  function send(msg) {
+    msg.orbly = 'watch';
+    parentWin.postMessage(msg, '*');
+  }
+  function now() {
+    try { return player.getCurrentTime() || 0; } catch (e) { return 0; }
+  }
+  function duration() {
+    try { return player.getDuration() || 0; } catch (e) { return 0; }
+  }
+  function videoId() {
+    try { return (player.getVideoData() || {}).video_id || ''; } catch (e) { return ''; }
+  }
+  function title() {
+    try { return (player.getVideoData() || {}).title || ''; } catch (e) { return ''; }
+  }
+
+  function handle(m) {
+    if (!ready) { waiting.push(m); return; }
+    switch (m.cmd) {
+      case 'load':
+        if (m.playing) player.loadVideoById({ videoId: m.videoId, startSeconds: m.start || 0 });
+        else player.cueVideoById({ videoId: m.videoId, startSeconds: m.start || 0 });
+        if (m.rate) player.setPlaybackRate(m.rate);
+        break;
+      case 'play': player.playVideo(); break;
+      case 'pause': player.pauseVideo(); break;
+      case 'seek': player.seekTo(Math.max(0, Number(m.time) || 0), true); break;
+      case 'rate': player.setPlaybackRate(Number(m.rate) || 1); break;
+      case 'volume':
+        player.setVolume(Math.max(0, Math.min(100, Number(m.volume) || 0)));
+        if (Number(m.volume) > 0) player.unMute(); else player.mute();
+        break;
+      default: break;
+    }
+  }
+
+  window.onYouTubeIframeAPIReady = function () {
+    player = new YT.Player('player', {
+      width: '100%',
+      height: '100%',
+      playerVars: { controls: 0, disablekb: 1, rel: 0, playsinline: 1, iv_load_policy: 3, fs: 0, origin: location.origin },
+      events: {
+        onReady: function () {
+          ready = true;
+          send({ ev: 'ready' });
+          var list = waiting;
+          waiting = [];
+          list.forEach(handle);
+          setInterval(function () { send({ ev: 'time', time: now(), duration: duration() }); }, 500);
+        },
+        onStateChange: function (e) {
+          send({ ev: 'state', state: NAMES[e.data] || String(e.data), time: now(), duration: duration(), title: title(), videoId: videoId() });
+        },
+        onPlaybackRateChange: function (e) {
+          send({ ev: 'rate', rate: e.data });
+        },
+        onError: function (e) {
+          send({ ev: 'error', code: e.data });
+        },
+      },
+    });
+  };
+
+  window.addEventListener('message', function (e) {
+    if (e.source !== parentWin) return;
+    var m = e.data;
+    if (!m || m.orbly !== 'watch' || !m.cmd) return;
+    handle(m);
+  });
+
+  var s = document.createElement('script');
+  s.src = 'https://www.youtube.com/iframe_api';
+  s.onerror = function () { send({ ev: 'error', code: 'offline' }); };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
